@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <meta name="viewport" initial-scale="1.0">
     <title>A music player service</title>
     <link rel="style.css" href="/style.css">
 </head>
 <body>
     <h1>A music player</h1>
-    <audio controls>
+    <audio id = "player">
         <source src="Songs/See you again.mp3" type="audio/mpeg">
-    </audio>
+    </audio>See you again
+    <button id="btn-play">Play</button>
+    <button id="btn-pause">pause</button>
     <br>
     <audio controls>
         <source src="Songs/Dumb Ways to Die.mp3" type="audio/mpeg">
@@ -32,10 +34,11 @@
         <source src="Songs/Tobias Rahim & Andreas Odbjerg.mp3" type="audio/mpeg">
     </audio>
     <br>
-
     <audio controls>
         <source src="Songs/Vi ta'r guldet med hjem.mp3" type="audio/mpeg">
     </audio>
+    <progress id="file" value="1" max="100"></progress>
+
     <script src="/script.js"></script>
 </body>
 </html>
