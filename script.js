@@ -66,10 +66,12 @@ class Song{
                 })
 
             paused = false
-            console.log(paused)
+            this.playbtn.innerHTML = "||"
+            console.log(this.file.title)
             }
        
             else{
+                this.playbtn.innerHTML = "▶"
                 this.progressBAR.value = 0;
                 paused = true
                 this.file.pause();

@@ -4,11 +4,22 @@ body{
 
 }
 
+.content{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+}
+
+.main-header{
+    color: green
+}
+
+
 .btn{
     border-radius: 40px;
     cursor: pointer;
     background-color: black;
     color: green;
+    margin-right: 20px;
 }
 
 .decreption{
@@ -17,6 +28,7 @@ body{
 }
 
 .song{
+    border-bottom: 1px solid greenyellow;
     margin: auto;
     text-align: right;
     padding: 15px;
