@@ -14,12 +14,21 @@
     </audio>See you again
     <button id="btn-play">Play</button>
     <button id="btn-pause">pause</button>
-    <br>
-    <audio controls>
-        <source src="Songs/Dumb Ways to Die.mp3" type="audio/mpeg">
-    </audio>
+    <progress id="file" value="1" max="100"></progress>
+
     <br>
 
+    <audio id ="player2">
+        <source src="Songs/Dumb Ways to Die.mp3" type="audio/mpeg">
+    </audio>Dumb ways to die
+    <button id="btn-play2">Play</button>
+    <button id="btn-pause2">pause</button>
+    <progress id="file2" value="1" max="100"></progress>
+    <br>
+
+    <div class="slidecontainer">
+        <input type="range" min="0" max="1" step="0.01" class="slider" id="myRange"/>
+      </div>
     <audio controls>
         <source src="Songs/LEMMiNO - Infinity.mp3" type="audio/mpeg">    
     </audio>
@@ -37,7 +46,6 @@
     <audio controls>
         <source src="Songs/Vi ta'r guldet med hjem.mp3" type="audio/mpeg">
     </audio>
-    <progress id="file" value="1" max="100"></progress>
 
     <script src="/script.js"></script>
 </body>
