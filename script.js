@@ -44,9 +44,8 @@ Creats a song class that wil represent all the song in the music player
 Here in the class it is possible to play pause and reset the songs.
 */
 class Song{
-    constructor(file, playbtn, pausebtn,progressBAR,volumeSlider){
-        this.playbtn = playbtn;
-        this.pausebtn = pausebtn;
+    constructor(file, playbtn,progressBAR,volumeSlider){
+        this.playbtn = playbtn        
         this.file = file;
         this.progressBAR = progressBAR
         this.volumeSlider = volumeSlider
@@ -54,6 +53,7 @@ class Song{
 
     play(){
         this.playbtn.onclick = () => {
+            
             if(paused == true){
             
                 this.file.play();
@@ -63,54 +63,38 @@ class Song{
                 const duration =  this.file.duration;
                 const progress = (currentTime / duration) * 100;
                 this.progressBAR.value = progress
-            })
-            
+                })
+
             paused = false
             console.log(paused)
+            }
+       
+            else{
+                this.progressBAR.value = 0;
+                paused = true
+                this.file.pause();
+            }
+            
         }
-        else{
-            paused = true
-            this.file.pause();
-        }
-        
-    }
-}
-
-    Pause(){
-        this.pausebtn.onclick = () => {
-            this.file.pause();
-        }
-    }
+    }   
 
     ResetSong(){
     this.file.currentTime = 0
     }
 
 }
-let mySong  = new Song(audioFile,playBTN,pause,progressBar,Volume);
-let mySong2  = new Song(audioFile2,playBTN2,pause2,progressBar2,Volume);
-let mySong3  = new Song(audioFile3,playBTN3,pause3,progressBar3,Volume);
-let mySong4  = new Song(audioFile4,playBTN4,pause4,progressBar4,Volume);
-let mySong5  = new Song(audioFile5,playBTN5,pause5,progressBar5,Volume);
-let mySong6  = new Song(audioFile6,playBTN6,pause6,progressBar6,Volume);
+let mySong  = new Song(audioFile,playBTN,progressBar,Volume);
+let mySong2  = new Song(audioFile2,playBTN2,progressBar2,Volume);
+let mySong3  = new Song(audioFile3,playBTN3,progressBar3,Volume);
+let mySong4  = new Song(audioFile4,playBTN4,progressBar4,Volume);
+let mySong5  = new Song(audioFile5,playBTN5,progressBar5,Volume);
+let mySong6  = new Song(audioFile6,playBTN6,progressBar6,Volume);
 
 
 
 mySong.play();
-mySong.Pause();
-
 mySong2.play();
-mySong2.Pause();
-
-
 mySong3.play();
-mySong3.Pause();
-
 mySong4.play();
-mySong4.Pause();
-
 mySong5.play();
-mySong5.Pause();
-
 mySong6.play();
-mySong6.Pause();

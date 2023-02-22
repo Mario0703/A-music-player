@@ -1,0 +1,14 @@
+body{
+    background-color: #131417;
+}
+
+.content{
+    text-align: center;
+}
+
+.btn{
+    border-radius: 15%;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-right: 20px;
+}
