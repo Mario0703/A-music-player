@@ -65,23 +65,10 @@ class Song{
     ResetSong(){
         this.ResetBTN.onclick = () =>{
             isPLaying.currentTime = 0;
-            this.playbtn.innerHTML = "▶"
+            isPLaying.pause();
         }
     }
 }
-
-
-shuffle.onclick = function(){
-    songs.forEach(function(sound){
-        sound.onended = onended;
-    });
-}
-
-function onended(evt) {
-    currentIndex = (currentIndex + 1) % songs.length; // increment our index
-    songs[currentIndex].play(); // play the next sound
-  }
-
 const songs = [];
 const ShuffledQueue = [];
 
