@@ -4,12 +4,11 @@ const progressBar = document.querySelectorAll("#file");
 
 let paused = true;
 let isPLaying;
+let ShuffleINdex;
 let Volume = document.getElementById("myRange"); 
 let ResetBTN = document.getElementById("Reset-btn");
 let shuffle = document.getElementById("shuffle");
-
 let currentVolume = Volume.value; // global variable to store current volume level
-
 //Function that updates the audio changer
 function updateVolume() {
     currentVolume = Volume.value;
@@ -34,12 +33,12 @@ class Song{
         this.ResetBTN = ResetBTN;
     }
 
-    play(){
+    PLAY(){
         this.playbtn.onclick = () => {
-            
             if(paused == true){
                 this.file.play();
                 isPLaying = this.file;
+                song.innerHTML = this.file.audioFile;
                 setInterval(() => {
                 const currentTime =  this.file.currentTime;
                 const duration =  this.file.duration;
@@ -49,7 +48,6 @@ class Song{
 
             paused = false
             this.playbtn.innerHTML = "||"
-            console.log(this.file.title)
             }
        
             else{
@@ -58,6 +56,8 @@ class Song{
                 paused = true
                 this.file.pause();
             }
+
+
             
         }
     }   
@@ -68,19 +68,51 @@ class Song{
             isPLaying.pause();
         }
     }
+
+    shuffle(){
+        this.file.play();
+    }
 }
+
+shuffle.addEventListener("click",play)
 const songs = [];
 const ShuffledQueue = [];
 
+//Push songs to array
 for(let i = 0; i<audioFile.length; i++){
     const song = new Song(audioFile[i],playBTN[i],ResetBTN,progressBar[i],Volume);
     songs.push(song);
 }
 
 for(let i in songs){
-    songs[i].play();
+    songs[i].PLAY();
     songs[i].ResetSong();
 }
+let counter = songs.length
+//Add event lisented when ened to songs
+function play(){
+    for(let i in songs){
+        songs[i].file.addEventListener("ended",next)
+    }
+    //shuffle feature
+    while (counter > 0){
+        let index = Math.floor(Math.random() * counter);
+        ShuffledQueue[index] = songs[index];
+        counter--
 
+        let temp = songs[counter];
+        ShuffledQueue[counter] = songs[index];
+        songs[index] = temp;
+
+    }
+    console.log("Shuffled:",ShuffledQueue,"songs:",                                                                                         songs)
+    ShuffleINdex = 0
+    ShuffledQueue[0].shuffle();
+}
+//Play the next song in the queue
+function next(){
+    ShuffleINdex++;
+    ShuffledQueue[ShuffleINdex].shuffle();
+}
 
 
