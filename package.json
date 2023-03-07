@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "id3-reader": "github:aadsm/JavaScript-ID3-Reader",
+    "lodash": "^4.17.21"
+  }
+}
